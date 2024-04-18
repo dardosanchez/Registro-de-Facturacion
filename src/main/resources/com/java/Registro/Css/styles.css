@@ -1,0 +1,56 @@
+.split-pane {
+    -fx-background-color: blue; /* Cambia el color de fondo del SplitPane a azul */
+}
+
+#tituloSecundario {
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-font-size: 24px; /* Tamaño del texto */
+    -fx-font-weight: bold; /* Peso de la fuente */
+}
+
+.button {
+    -fx-background-color: #007bff; /* Color de fondo */
+    -fx-text-fill: white; /* Color del texto */
+    -fx-font-size: 14px; /* Tamaño de la fuente */
+    -fx-font-weight: bold; /* Peso de la fuente */
+    -fx-padding: 10px 20px; /* Espaciado dentro del botón */
+    -fx-border-radius: 5px; /* Radio de borde para esquinas redondeadas */
+}
+.button:hover {
+    -fx-background-color: #0056b3; /* Color de fondo al pasar el mouse */
+}
+
+
+.combo-box {
+    -fx-background-color: white; /* Color de fondo */
+    -fx-text-fill: black; /* Color del texto */
+    -fx-font-size: 14px; /* Tamaño de la fuente */
+    -fx-background-radius: 50px; /* Ajusta el redondeo del ComboBox */
+    -fx-border-radius: 50px; /* Ajusta el redondeo del borde del ComboBox */
+    -fx-border-width: 1px; /* Ancho del borde del ComboBox */
+}
+.combo-box .list-cell {
+    -fx-background-color: white; /* Color de fondo del desplegable */
+    -fx-text-fill: black; /* Color del texto en el desplegable */
+}
+.combo-box .list-cell:hover {
+    -fx-background-color: #f2f2f2; /* Color de fondo al pasar el mouse */
+}
+
+
+
+.radio-button {
+    -fx-font-size: 14px; /* Tamaño de la fuente */
+}
+
+.radio-button .radio {
+    -fx-background-radius: 50%; /* Hace que el botón sea redondo */
+}
+
+.radio-button .radio:selected {
+    -fx-background-color: #007bff; /* Color de fondo seleccionado */
+    -fx-border-color: #007bff; /* Color del borde seleccionado */
+}
+
+
+

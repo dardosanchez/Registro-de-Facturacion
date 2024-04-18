@@ -32,6 +32,10 @@ import java.util.ResourceBundle;
 @Component
 public class Controller implements Initializable {
 
+    @FXML
+    private TextField totalTextField;
+
+
     @Value("${ubicacionDisco}")
     private String ubicacionDisco;
 
@@ -145,6 +149,9 @@ public class Controller implements Initializable {
 
             generarCarpetas();
             guardarArchivoEnDisco(archivoSeleccionado);
+
+            // Aquí estableces el texto del total después de guardar el archivo
+            totalTextField.setText("Total: $100.00"); // Reemplaza "$100.00" con el valor real del total
         } else {
             System.out.println("No se ha seleccionado ningún archivo.");
         }
