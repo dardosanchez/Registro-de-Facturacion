@@ -5,7 +5,6 @@ import com.java.Registro.Repository.ServiciosRepository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
-import javafx.embed.swing.SwingNode;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -25,7 +24,6 @@ import java.net.URL;
 import java.nio.file.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -34,6 +32,9 @@ public class Controller implements Initializable {
 
     @FXML
     private TextField totalTextField;
+
+    @FXML
+    private Label tituloSecundario1;
 
 
     @Value("${ubicacionDisco}")
@@ -73,7 +74,11 @@ public class Controller implements Initializable {
         pagoRadioButton.setToggleGroup(toggleGroup);
         cargarServicios();
         generarCarpetas();
+        tituloSecundario1.setVisible(false);
+        totalTextField.setVisible(false);
     }
+
+
 
     private void generarCarpetas() {
         try {
@@ -134,6 +139,8 @@ public class Controller implements Initializable {
 
                 // Cerrar el documento PDF
                 document.close();
+                tituloSecundario1.setVisible(true);
+                totalTextField.setVisible(true);
             } catch (IOException e) {
                 System.out.println("Error al cargar el archivo PDF: " + e.getMessage());
             }
@@ -185,6 +192,7 @@ public class Controller implements Initializable {
                 Path destino = Path.of(carpetaDestino, nombreArchivo);
                 Files.copy(origen, destino, StandardCopyOption.REPLACE_EXISTING);
                 System.out.println("Archivo guardado en: " + destino);
+                limpiarElementos();
                 mostrarMensajeExito();
             } catch (IOException e) {
                 System.out.println("Error al guardar el archivo en disco para el servicio " + servicioSeleccionado.getNombre() + ": " + e.getMessage());
@@ -196,6 +204,21 @@ public class Controller implements Initializable {
         }
     }
 
+
+    private void limpiarElementos() {
+
+        // Limpiar los RadioButtons
+        toggleGroup.selectToggle(null);
+
+        // Limpiar la imagen del ImageView
+        pdfImageView.setImage(null);
+
+        // Limpiar el texto del TextField
+        totalTextField.clear();
+
+        tituloSecundario1.setVisible(false);
+        totalTextField.setVisible(false);
+    }
 
 
     private void mostrarMensajeExito() {
