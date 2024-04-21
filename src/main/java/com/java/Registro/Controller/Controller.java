@@ -6,7 +6,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
@@ -36,8 +39,7 @@ public class Controller implements Initializable {
     @FXML
     private Label tituloSecundario1;
 
-
-    @Value("${ubicacionDisco}")
+    @Value("${NOMBRE_DISCO}")
     private String ubicacionDisco;
 
     @FXML
@@ -69,14 +71,17 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.stage = new Stage();
         toggleGroup = new ToggleGroup();
         facturaRadioButton.setToggleGroup(toggleGroup);
         pagoRadioButton.setToggleGroup(toggleGroup);
+
         cargarServicios();
         generarCarpetas();
         tituloSecundario1.setVisible(false);
         totalTextField.setVisible(false);
     }
+
 
 
 
@@ -228,8 +233,7 @@ public class Controller implements Initializable {
         alert.setContentText("El archivo se guardó correctamente.");
         alert.showAndWait();
 
-        // Obtener la ventana padre
-        Stage stage = (Stage) guardarButton.getScene().getWindow();
+        
 
         // Cerrar la ventana padre
         stage.close();
@@ -248,4 +252,32 @@ public class Controller implements Initializable {
         // Cerrar la ventana padre
         stage.close();
     }
+
+    @FXML
+    private void irAAgregarServicio() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/java/Registro/AgregarServicio.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void irAListadoFactura() {
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/java/Registro/ListadoFactura.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

@@ -6,7 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -23,9 +25,12 @@ public class Main extends Application {
 		launch();
 	}
 
+	private String ubicacionDisco="E";
+
 	@Override
 	public void start(Stage stage) throws Exception {
-		if (discoConectado()) {
+
+		if (ubicacionDisco != null) {
 			// Inicializar la aplicación si el disco está conectado
 			context = SpringApplication.run(Main.class);
 
@@ -41,8 +46,11 @@ public class Main extends Application {
 			scene.getStylesheets().add(getClass().getResource("/com/java/Registro/Css/styles.css").toExternalForm());
 
 			// Configurar el escenario principal
-			stage.setTitle("Registro de Facturacion");
+			stage.setTitle("Registro de Facturación");
 			stage.setScene(scene);
+			// Agregar icono a la ventana
+			stage.getIcons().add(new Image(getClass().getResourceAsStream("/com/java/Registro/Images/logo.png")));
+			stage.setResizable(false);
 			stage.show();
 		} else {
 			// Mostrar un mensaje indicando que el disco no está conectado
@@ -66,6 +74,8 @@ public class Main extends Application {
 			}
 		}
 	}
+
+
 
 	private static boolean discoConectado() {
 		// Verificar si la ruta del disco externo está disponible

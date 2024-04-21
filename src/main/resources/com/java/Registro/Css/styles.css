@@ -1,4 +1,4 @@
-.split-pane {
+.panel {
     -fx-background-color: blue; /* Cambia el color de fondo del SplitPane a azul */
 }
 
@@ -20,6 +20,14 @@
     -fx-background-color: #0056b3; /* Color de fondo al pasar el mouse */
 }
 
+.panel Button {
+    -fx-background-color: #0000FF; /* Cambia "lightgreen" al color que prefieras */
+}
+
+/* Estilo para el hover de los botones */
+.panel Button:hover {
+    -fx-background-color: #0000C4; /* Cambia "lightgray" al color que prefieras */
+}
 
 .combo-box {
     -fx-background-color: white; /* Color de fondo */

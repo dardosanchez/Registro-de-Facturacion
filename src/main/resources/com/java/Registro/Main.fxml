@@ -4,16 +4,20 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.java.Registro.Controller.Controller">
-    <SplitPane prefHeight="400.0" prefWidth="209.0" />
-
+    <Pane layoutX="-3.0" layoutY="-2.0" prefHeight="401.0" prefWidth="212.0" styleClass="panel">
+        <children>
+            <Button fx:id="agregarServicioButton" layoutY="228.0" onAction="#irAAgregarServicio" prefHeight="30.0" prefWidth="212.0" text="Agregar Servicio" textAlignment="CENTER" />
+            <Button fx:id="listadoFacturasButton" layoutY="267.0" onAction="#irAListadoFactura" prefHeight="30.0" prefWidth="212.0" text="Listado de Facturas" textAlignment="CENTER" />
+        </children>
+    </Pane>
     <Button layoutX="240.0" layoutY="215.0" onAction="#seleccionarArchivo" text="Seleccionar archivo" />
     <ImageView fx:id="pdfImageView" fitHeight="233.0" fitWidth="176.0" layoutX="428.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" />
     <Button layoutX="271.0" layoutY="281.0" onAction="#guardarArchivo" text="Guardar" />
